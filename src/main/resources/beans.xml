@@ -1,0 +1,12 @@
+
+<!--配置文件beans.xml-->
+<beans>
+    <bean id="rateLimiter" class="com.persimmon.designmodel.factory.di.RateLimiter">
+        <constructor-arg ref="redisCounter"/>
+    </bean>
+
+    <bean id="redisCounter" class="com.persimmon.designmodel.factory.di.RedisCounter" scope="singleton" lazy-init="true">
+        <constructor-arg type="String" value="127.0.0.1"/>
+        <constructor-arg type="String" value="1234" />
+    </bean>
+</beans>
